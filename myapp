@@ -6,6 +6,7 @@ require __DIR__.'/vendor/autoload.php';
 use BristolPhpTraining\cli\Command\ConfirmationCommand;
 use BristolPhpTraining\cli\Command\OutputCommand;
 use BristolPhpTraining\cli\Command\ProgressCommand;
+use BristolPhpTraining\cli\Command\QuestionCommand;
 use BristolPhpTraining\cli\Command\SayHelloCommand;
 use BristolPhpTraining\cli\Command\TableCommand;
 use Symfony\Component\Console\Application;
@@ -18,6 +19,7 @@ $application->add(new OutputCommand());
 $application->add(new ProgressCommand());
 $application->add(new TableCommand());
 $application->add(new ConfirmationCommand());
+$application->add(new QuestionCommand());
 
 
 $application->run();
