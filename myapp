@@ -10,5 +10,6 @@ $application = new Application();
 
 $sayHelloCommand = new SayHelloCommand();
 $application->add($sayHelloCommand);
+$application->setDefaultCommand($sayHelloCommand->getName(), true);
 
 $application->run();
