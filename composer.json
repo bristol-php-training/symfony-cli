@@ -1,5 +1,5 @@
 {
-    "name": "daveliddament/cli",
+    "name": "training/cli",
     "description": "CLI application",
     "type": "project",
     "license": "MIT",
@@ -9,6 +9,12 @@
             "email": "dave@lampbristol.com"
         }
     ],
+    "autoload" : {
+        "psr-4": {
+          "BristolPhpTraining\\cli\\": "src//"
+        }
+    },
+
     "require": {
         "symfony/console": "^3.3"
     }
