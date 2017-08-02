@@ -3,8 +3,12 @@
 
 require __DIR__.'/vendor/autoload.php';
 
+use BristolPhpTraining\cli\Command\SayHelloCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
+
+$sayHelloCommand = new SayHelloCommand();
+$application->add($sayHelloCommand);
 
 $application->run();
