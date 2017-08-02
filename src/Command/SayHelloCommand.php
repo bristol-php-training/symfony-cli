@@ -18,7 +18,7 @@ class SayHelloCommand extends Command
         $this->setDescription("Says hello");
         $this->addArgument('first', InputArgument::REQUIRED, 'First anme');
         $this->addArgument('last', InputArgument::REQUIRED, 'Last anme');
-        $this->addOption('compliment', 'c', InputOption::VALUE_REQUIRED, 'Add a compliment');
+        $this->addOption('compliment', 'c', InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Add a compliment');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -27,7 +27,7 @@ class SayHelloCommand extends Command
         $lastName = $input->getArgument('last');
         $message = "Hello {$firstName} {$lastName}.";
         if ($input->getOption('compliment')) {
-            $message .= ' ' . $input->getOption('compliment');
+            $message .= ' Here are some nice things about you: ' . join(", ", $input->getOption('compliment'));
         }
         $output->writeln($message);
     }
