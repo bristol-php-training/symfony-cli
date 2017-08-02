@@ -19,7 +19,8 @@ class ProgressCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $progressBar = new ProgressBar($output, 10);
-        $progressBar->setBarCharacter('<fg=magenta>=</>');
+        $progressBar->setBarCharacter("<fg=green>\xE2\x9C\x93</>");
+        $progressBar->setEmptyBarCharacter('<fg=red>.</>');
         $progressBar->setProgressCharacter("\xF0\x9F\x8D\xBA");
 
         for($i=0; $i<10; $i++) {
