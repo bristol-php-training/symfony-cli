@@ -19,6 +19,7 @@ class SayHelloCommand extends Command
         $this->addArgument('first', InputArgument::REQUIRED, 'First anme');
         $this->addArgument('last', InputArgument::REQUIRED, 'Last anme');
         $this->addOption('compliment', 'c', InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Add a compliment');
+        $this->addOption('repeats', 'r', InputOption::VALUE_REQUIRED, 'Repeat message x number of times');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -29,7 +30,12 @@ class SayHelloCommand extends Command
         if ($input->getOption('compliment')) {
             $message .= ' Here are some nice things about you: ' . join(", ", $input->getOption('compliment'));
         }
-        $output->writeln($message);
+        $repeats = $input->getOption('repeats');
+        $num = $repeats ? $repeats : 1;
+
+        for($i=0; $i<$num; $i++) {
+            $output->writeln($message);
+        }
     }
 
 }
