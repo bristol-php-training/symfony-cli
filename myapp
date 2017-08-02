@@ -3,6 +3,7 @@
 
 require __DIR__.'/vendor/autoload.php';
 
+use BristolPhpTraining\cli\Command\OutputCommand;
 use BristolPhpTraining\cli\Command\SayHelloCommand;
 use Symfony\Component\Console\Application;
 
@@ -10,6 +11,7 @@ $application = new Application();
 
 $sayHelloCommand = new SayHelloCommand();
 $application->add($sayHelloCommand);
-$application->setDefaultCommand($sayHelloCommand->getName(), true);
+$application->add(new OutputCommand());
+
 
 $application->run();
