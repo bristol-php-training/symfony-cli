@@ -15,13 +15,14 @@ class SayHelloCommand extends Command
     {
         $this->setName('say:hello');
         $this->setDescription("Says hello");
-        $this->addArgument('name', InputArgument::OPTIONAL,'Name of person to say hello to', 'world');
+        $this->addArgument('names', InputArgument::IS_ARRAY,'Names of person to say hello to');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name = $input->getArgument('name');
-        $output->writeln("Hello {$name}");
+        $names = $input->getArgument('names');
+        $namesAsString = join(', ', $names);
+        $output->writeln("Hello {$namesAsString}");
     }
 
 
