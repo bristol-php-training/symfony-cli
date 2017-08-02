@@ -1,0 +1,15 @@
+{
+    "name": "daveliddament/cli",
+    "description": "CLI application",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dave Liddament",
+            "email": "dave@lampbristol.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^3.3"
+    }
+}
