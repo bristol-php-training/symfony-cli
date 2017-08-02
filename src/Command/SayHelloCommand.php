@@ -15,7 +15,7 @@ class SayHelloCommand extends Command
     {
         $this->setName('say:hello');
         $this->setDescription("Says hello");
-        $this->addArgument('name', InputArgument::REQUIRED,'Name of person to say hello to');
+        $this->addArgument('name', InputArgument::OPTIONAL,'Name of person to say hello to', 'world');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
